@@ -1,0 +1,36 @@
+CREATE DATABASE school;
+use school;
+CREATE TABLE student(
+FirstName varchar(255),
+LastName varchar(255),
+Email varchar(255),
+CellPhone varchar(255),
+Major varchar(255),
+GPA double(2,1),
+StartDate char(10),
+StudentId int,
+PRIMARY KEY (StudentId));
+DESCRIBE student;
+INSERT INTO student(FirstName,LastName,Email,CellPhone,Major,GPA,StartDate,StudentId) values('John','Doe','johndoe@smileyface.edu','408-333-3456','CIS',2.8,'09/22/2004',1);
+INSERT INTO student(FirstName,LastName,Email,CellPhone,Major,GPA,StartDate,StudentId) values('Mary','Chin','mchin@qmail.com','408-204-1234','Biology',3.3,'06/22/2003',2);
+INSERT INTO student(FirstName,LastName,Email,CellPhone,Major,GPA,StartDate,StudentId) values('Sadish','Pamel','sadi@univ_ab.edu','415-204-1234','CIS',3.9,'06/22/2003',3);
+SHOW FIELDS IN student;
+SELECT * FROM student;
+SELECT FirstName,LastName FROM student;
+SELECT FirstName,LastName,Major FROM student;
+SELECT CellPhone,Email FROM student;
+SELECT DISTINCT Major FROM student;
+SELECT * FROM student LIMIT 2;
+SELECT * FROM student WHERE gpa > 3.0;
+SELECT * FROM student WHERE gpa BETWEEN 3.0 AND 4.0;
+SELECT * FROM student WHERE CellPhone LIKE '408%';
+SELECT * FROM student WHERE StartDate LIKE '%2003';
+SELECT FirstName,LastName FROM student WHERE Major='CIS' AND gpa > 3.5;
+SELECT FirstName,Email FROM student WHERE Email LIKE '%.com';
+INSERT INTO student(FirstName,LastName,Email,CellPhone,Major,GPA,StartDate,StudentId) values('Brandon','Frison','asdklfj@email.com','435-244-5224','Chemistry',2.3,'07/23/2005',4);
+SELECT * FROM student ORDER BY LastName ASC;
+SELECT * FROM student ORDER BY gpa DESC;
+UPDATE student SET CellPhone='650-123-4563' WHERE FirstName='Mary';
+SELECT avg(gpa) FROM student;
+SELECT count(*) FROM student;
+SELECT curdate();
